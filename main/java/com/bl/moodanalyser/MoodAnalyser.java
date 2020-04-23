@@ -3,21 +3,25 @@ package com.bl.moodanalyser;
 public class MoodAnalyser {
     private String message;
 
-    public MoodAnalyser()
-        {
-            this.message=null;
-        }
-    public MoodAnalyser(String message)
-        {
-            if(message.contains("sad"))
-                this.message="SAD";
-            else
-                this.message="HAPPY";
-
-        }
-
-        public String analyseMood()
-        {
-            return this.message;
-        }
+    public MoodAnalyser() {
     }
+    public MoodAnalyser(String message)
+    {
+        if(message == null){
+            this.message=null;
+        }else if(message.contains("happy")){
+            this.message="HAPPY";}
+        else
+            this.message="SAD";
+    }
+    public String analyseMood()
+    {
+        try {
+            if (message.contains("sad"))
+            return "SAD";
+        } catch (NullPointerException e) {
+            return "HAPPY";
+        }
+        return message;
+    }
+}
