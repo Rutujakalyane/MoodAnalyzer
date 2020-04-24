@@ -1,26 +1,29 @@
 package com.bl.moodanalyser;
 import org.junit.Assert;
-import org.junit.Assert;
 import org.junit.Test;
-
 public class MoodAnalyserTest {
     @Test
-    public void given_Message_whenSad_ShouldReturnHSad() {
+    public void whenMood_IsSad_ShouldReturnSad() {
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad Mood");
-        String mood = moodAnalyser.analyseMood();
-        Assert.assertEquals("SAD", mood);
+        String message = moodAnalyser.analyseMood();
+        Assert.assertEquals("SAD",message);
     }
 
     @Test
-    public void WhenIn_happy_ShouldReturnHappy() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser("happy");
-        String mood = moodAnalyser.analyseMood();
-        Assert.assertEquals("HAPPY", mood);
+    public void whenIn_AnyMood_ShouldReturnHappy() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in any Mood");
+        String message = moodAnalyser.analyseMood();
+        Assert.assertEquals("HAPPY",message);
     }
+
     @Test
     public void whenMood_IsNull_ShouldReturnHappy() {
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-        String mood = moodAnalyser.analyseMood();
-        Assert.assertEquals("HAPPY",mood);
+        String message = moodAnalyser.analyseMood();
+        Assert.assertEquals("HAPPY", message);
     }
+
+
+
 }
+
