@@ -27,8 +27,6 @@ import org.junit.Test;
         }
 
        
-        }
-
         @Test
         public void givenMessage_WhenEmpty_ShouldReturnMoodAnalyserException() {
             MoodAnalyser analyser = new MoodAnalyser("");
