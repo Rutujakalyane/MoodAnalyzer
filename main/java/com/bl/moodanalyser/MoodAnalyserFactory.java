@@ -17,7 +17,7 @@ public class MoodAnalyserFactory {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            throw new MoodAnalyserException(MoodAnalyserException.exceptionType.NO_SUCH_METHOD,"Please enter proper method");
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
