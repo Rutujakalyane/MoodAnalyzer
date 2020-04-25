@@ -2,9 +2,10 @@ package com.bl.moodanalyser;
 
     public class MoodAnalyserException extends Exception{
 
-        public enum exceptionType { ENTERED_NULL, ENTERED_EMPTY };
+        public enum exceptionType {
+            ENTERED_NULL, ENTERED_EMPTY,NO_SUCH_CLASS
+        };
         exceptionType type;
-
         public MoodAnalyserException(String message) {
             super(message);
         }
