@@ -1,29 +1,50 @@
 package com.bl.moodanalyser;
 import org.junit.Assert;
 import org.junit.Test;
-public class MoodAnalyserTest {
-    @Test
-    public void whenMood_IsSad_ShouldReturnSad() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad Mood");
-        String message = moodAnalyser.analyseMood();
-        Assert.assertEquals("SAD",message);
+
+
+    public class MoodAnalyserTest {
+        @Test
+        public void givenMessage_WhenSad_Should_ReturnSad() throws MoodAnalyserException {
+            MoodAnalyser analyzer = new MoodAnalyser("this sad is message");
+            String mood = analyzer.analyseMood();
+            Assert.assertEquals("SAD",mood);
+        }
+
+        @Test
+        public void givenMessage_WhenAny_ShouldReturnHappy() throws MoodAnalyserException {
+            MoodAnalyser analyzer = new MoodAnalyser("I am in any mood");
+            String mood = analyzer.analyseMood();
+            Assert.assertEquals("HAPPY",mood);
+
+        }
+
+        @Test
+        public void givenMessage_WhenNull_ShouldReturnHappy() throws MoodAnalyserException {
+            MoodAnalyser analyzer = new MoodAnalyser("NULL");
+            String  mood = analyzer.analyseMood();
+            Assert.assertEquals("HAPPY",mood);
+        }
+
+       
+        }
+
+        @Test
+        public void givenMessage_WhenEmpty_ShouldReturnMoodAnalyserException() {
+            MoodAnalyser analyser = new MoodAnalyser("");
+            try {
+                analyser.analyseMood();
+            } catch (MoodAnalyserException e) {
+                Assert.assertEquals(MoodAnalyserException.exceptionType.ENTERED_EMPTY,e.type);
+            }
+
+
+        }
     }
 
-    @Test
-    public void whenIn_AnyMood_ShouldReturnHappy() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in any Mood");
-        String message = moodAnalyser.analyseMood();
-        Assert.assertEquals("HAPPY",message);
-    }
-
-    @Test
-    public void whenMood_IsNull_ShouldReturnHappy() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-        String message = moodAnalyser.analyseMood();
-        Assert.assertEquals("HAPPY", message);
-    }
 
 
 
-}
+
+
 
