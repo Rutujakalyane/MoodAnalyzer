@@ -133,4 +133,7 @@ public class MoodAnalyserTest {
             Object mood = MoodAnalyserFactory.invokeMethod((MoodAnalyser) obj, "analyseMood");
             Assert.assertEquals("HAPPY", mood);
         } catch (MoodAnalyserException e) {
-         
+            e.printStackTrace();
+        }
+    }
+}
