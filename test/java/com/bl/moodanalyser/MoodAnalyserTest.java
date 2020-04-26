@@ -93,8 +93,15 @@ public class MoodAnalyserTest {
                 e.printStackTrace();
             }
         }
-
-
+        @Test
+        public void givenHappyMessage_ImproperMethodName_ReturnMoodAnalyseException() {
+            try {
+                MoodAnalyser ReflectObject = MoodAnalyserFactory.createMoodAnalyser("I am in Happy Mood");
+                Object mood = MoodAnalyserFactory.invokeMethod(ReflectObject, "analyseMood123");
+            } catch (MoodAnalyserException e) {
+                Assert.assertEquals(MoodAnalyserException.exceptionType.NO_SUCH_METHOD, e.type);
+            }
+        }
 }
 
 

@@ -48,11 +48,12 @@ public class MoodAnalyserFactory {
             throw new MoodAnalyserException(MoodAnalyserException.exceptionType.NO_SUCH_METHOD,
                     "Define Proper method Name");
         } catch (IllegalAccessException e) {
-            throw new MoodAnalyserException(MoodAnalyserException.exceptionType.No_ACCESS,e.getMessage());
+            e.printStackTrace();
         } catch ( InvocationTargetException e) {
-            throw new MoodAnalyserException(MoodAnalyserException.exceptionType.METHOD_INVOCATION_ISSUE,
-                    "May be issue with Data entered");
+            e.printStackTrace();
         }
+        return null;
     }
+
 
 }
